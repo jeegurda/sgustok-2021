@@ -105,7 +105,9 @@ header {
 
 .menu-about {
   position: absolute;
+  top: 0;
   bottom: 30px;
+  overflow: auto;
   left: var(--padding);
   right: var(--padding);
   visibility: hidden;
