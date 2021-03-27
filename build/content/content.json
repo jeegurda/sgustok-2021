@@ -1,0 +1,26 @@
+[
+  {
+    "id": "first",
+    "title": "Eyes Wide Shut",
+    "image": "./content/image-1.jpg",
+    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
+  },
+  {
+    "id": "the-second",
+    "title": "Eyes Wide Shut",
+    "image": "./content/image-2.jpg",
+    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
+  },
+  {
+    "id": "the-best",
+    "title": "Eyes Wide Shut",
+    "image": "./content/image-3.jpg",
+    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
+  },
+  {
+    "id": "last",
+    "title": "Eyes Wide Shut",
+    "image": "./content/image-4.jpg",
+    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
+  }
+]

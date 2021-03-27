@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
     <link rel="alternate icon" href="./img/favicon.png">
     <link rel="stylesheet" href="./css/bundle.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@6.5.0/swiper-bundle.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sgustok</title>
   </head>
@@ -38,21 +38,13 @@
         </footer>
       </section>
       <section class="projects">
-        <div class="splide">
-            <div class="splide__track">
-              <ul class="splide__list">
-                <li class="splide__slide project">
-                  <img src="./content/image-1.jpg" />
-                </li>
-                <li class="splide__slide project">
-                  <img src="./content/image-2.jpg" />
-                </li>
-              </ul>
-            </div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+          </div>
           </div>
       </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="https://unpkg.com/swiper@6.5.0/swiper-bundle.min.js"></script>
     <script src="./js/bundle.js"></script>
   </body>
 </html>
