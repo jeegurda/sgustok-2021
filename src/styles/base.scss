@@ -114,6 +114,9 @@ header {
   opacity: 0;
   transform: translateY(10px);
   transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   p:not(:last-child) {
     margin-bottom: 8px;
@@ -131,17 +134,16 @@ header {
   box-sizing: border-box;
   overflow: auto;
   flex: 0 1 auto;
-}
-
-.text-container {
   animation: text-out 0.2s 1 both;
-
-  p:not(:last-child) {
-    margin-bottom: 8px;
-  }
 
   &.text-in {
     animation: text-in 0.2s 1 both;
+  }
+}
+
+.text-container {
+  p:not(:last-child) {
+    margin-bottom: 8px;
   }
 }
 

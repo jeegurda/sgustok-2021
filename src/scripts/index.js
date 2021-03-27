@@ -62,6 +62,7 @@ const addTriggerEvents = (slider, content) => {
 
   const triggerInfo = document.querySelector('.trigger-info')
   const textContainer = document.querySelector('.text-container')
+  const textContainerOuter = document.querySelector('.text')
 
   let currentTextId = null
   const currentSlide = () => slider.realIndex
@@ -85,11 +86,11 @@ const addTriggerEvents = (slider, content) => {
 
   const showText = id => {
     textContainer.innerHTML = getText(id)
-    textContainer.classList.add('text-in')
+    textContainerOuter.classList.add('text-in')
   }
   
   const hideText = () => {
-    textContainer.classList.remove('text-in')
+    textContainerOuter.classList.remove('text-in')
     setTimeout(() => {
       textContainer.innerHTML = ''
     }, 200)
@@ -176,7 +177,7 @@ const addMenuEvents = textApi => {
   })
 
   const triggerMenuAbout = document.querySelector('.trigger-menu-about')
-  
+
   const aboutDescription = document.querySelector('.about-description')
   const aboutNode = document.querySelector('.menu-about')
 
