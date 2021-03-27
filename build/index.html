@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
     <link rel="alternate icon" href="./img/favicon.png">
-    <link rel="stylesheet" href="./css/bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@6.5.0/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/bundle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sgustok</title>
   </head>
@@ -13,23 +13,32 @@
     <main>
       <section class="left">
         <header>
-          <a href="/" class="logo">
-            <img src="./img/logo.svg" width="63" />
-            <span class="logo-icon">
-              <img src="/img/logo-icon.svg" width="7" />
-            </span>
+          <a href="/" class="logo-link">
+            <div class="logo">
+              <img src="./img/logo.svg" width="63" />
+              <span class="logo-icon">
+                <img src="/img/logo-icon.svg" width="7" />
+              </span>
+            </div>
           </a>
+          <div class="trigger-menu">
+            <div class="trigger-menu-label">
+              <div class="trigger-menu-show">Menu</div>
+              <div class="trigger-menu-hide">Back</div>
+            </div>
+          </div>
         </header>
         <section class="upper-spacer"></section>
         <section class="text">
-          <div class="text-container">
-            Sgustok is a Belarusian digital art group that emerged back in 2005 as a result of a cultural experiment. In order to somehow influence the cultural situation in Belarus, we started with the creation of the independent art magazine Sgustok Magazine, and in 2008 we began our experiments in the field of electronic music and created our first release and published it on our own label Sgustok Music.<br><br>
-            Moving between structures is our basic principle of existence, which allows us to avoid limited consciousness. In 2020, as a result of the rapid development of NFT technology and especially in the field of art, we decided to move towards the ever-absorbing world of electronic art, striving towards something unconscious that is difficult to formulate and that always escapes. As in our other creative manifestations, we are trying to create art that is saturated with sharp sensory and emotional qualities, something light, simple, understandable and at the same time penetratingly deep and powerful.
-          </div>
+          <div class="text-container"></div>
+          <template class="about-description">
+            <p>Sgustok is a Belarusian digital art group that emerged back in 2005 as a result of a cultural experiment. In order to somehow influence the cultural situation in Belarus, we started with the creation of the independent art magazine Sgustok Magazine, and in 2008 we began our experiments in the field of electronic music and created our first release and published it on our own label Sgustok Music.</p>
+            <p>Moving between structures is our basic principle of existence, which allows us to avoid limited consciousness. In 2020, as a result of the rapid development of NFT technology and especially in the field of art, we decided to move towards the ever-absorbing world of electronic art, striving towards something unconscious that is difficult to formulate and that always escapes. As in our other creative manifestations, we are trying to create art that is saturated with sharp sensory and emotional qualities, something light, simple, understandable and at the same time penetratingly deep and powerful.</p>
+          </template>
         </section>
         <footer>
-          <nav>
-            <a tar href="#about">About</span>
+          <nav class="footer-nav">
+            <span class="trigger-about">About</span>
             <a rel="noreferrer noopener" target="_blank" href="mailto:dan@sgustok.art">Contact</a>
             <a rel="noreferrer noopener" target="_blank" href="">Rarible</a>
             <a rel="noreferrer noopener" target="_blank" href="">Instagram</a>
@@ -39,12 +48,23 @@
       </section>
       <section class="projects">
         <div class="swiper-container">
-          <div class="swiper-wrapper">
-          </div>
-          </div>
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-pagination"></div>
+          <span class="trigger-info swiper-no-swiping">Info</span>
+        </div>
+      </section>
+      <section class="menu">
+        <nav class="menu-nav">
+          <span class="trigger-menu-about">About</span>
+          <a rel="noreferrer noopener" target="_blank" href="mailto:dan@sgustok.art">Contact</a>
+          <a rel="noreferrer noopener" target="_blank" href="">Rarible</a>
+          <a rel="noreferrer noopener" target="_blank" href="">Instagram</a>
+          <a rel="noreferrer noopener" target="_blank" href="">Twitter</a>
+        </nav>
+        <div class="menu-about"></div>
       </section>
     </main>
-    <script src="https://unpkg.com/swiper@6.5.0/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./js/bundle.js"></script>
   </body>
 </html>

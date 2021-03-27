@@ -1,9 +1,15 @@
+:root {
+  --padding: 30px;
+}
+
 body {
   margin: 0;
   min-width: 320px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Arial', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 12px;
+  color: black;
   line-height: calc(20 / 12);
+  letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,6 +21,7 @@ p, ul {
 
 main {
   height: 100vh;
+  max-width: 100%;
   display: flex;
 }
 
@@ -22,33 +29,135 @@ main {
   flex: 1 0;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 header {
   display: flex;
-  padding: 30px;
-  flex: 0 0;
+  flex: 0 0 auto;
+  justify-content: space-between;
+}
+
+.logo-link {
+  padding: 30px var(--padding);
+}
+
+.logo {
+  display: flex;
+  position: relative;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.trigger-menu {
+  padding: var(--padding);
+  display: none;
+}
+
+.trigger-menu-label {
+  position: relative;
+  text-align: center;
+
+  div {
+    transition: visibility 0.2s, opacity 0.2s;
+  }
+}
+
+.trigger-menu-hide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  top: 60px; // Slightly more than a header
+  box-sizing: border-box;
+  padding-bottom: 60px;
+  bottom: 0;
+  width: 100%;
+  visibility: hidden;
+  transition: visibility 0s 0.3s;
+  display: flex;
+  z-index: 20;
+}
+
+.menu-nav {
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-row-gap: 32px;
+  margin: auto;
+  text-align: center;
+  transform: translateY(10px);
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+
+  a, 
+  span {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.menu-about {
+  position: absolute;
+  bottom: 30px;
+  left: var(--padding);
+  right: var(--padding);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+
+  p:not(:last-child) {
+    margin-bottom: 8px;
+  }
 }
 
 .upper-spacer {
-  flex: calc(50vh - 80px) 0 1;
+  flex: 1 1 auto;
+  max-height: calc(50vh - 80px);
 }
 
 .text {
   max-width: 648px;
-  padding: 0 30px;
+  padding: 0 var(--padding);
   box-sizing: border-box;
   overflow: auto;
+  flex: 0 1 auto;
+}
+
+.text-container {
+  animation: text-out 0.2s 1 both;
+
+  p:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  &.text-in {
+    animation: text-in 0.2s 1 both;
+  }
+}
+
+.text-title {
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
 footer {
-  flex: 0 0;
+  flex: 0 0 auto;
   display: flex;
   margin-top: auto;
+  max-width: 100%;
+  overflow: auto;
 }
 
-nav {
-  padding: 24px 30px;
+.footer-nav {
+  padding: 30px 30px 24px;
   display: grid;
   grid-auto-flow: column;
   grid-column-gap: 30px;
@@ -66,14 +175,10 @@ nav {
   }
 }
 
-.logo {
-  position: relative;
-}
-
 .logo-icon {
   position: absolute;
   right: -8px;
-  top: 0px;
+  top: -3px;
   animation: rotate 2s linear infinite;
 
   img {
@@ -82,18 +187,89 @@ nav {
 }
 
 .projects {
-  flex: 0 0 100vmin;
+  flex: 0 1 100vh;
   overflow: hidden;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: 20;
+    background: white;
+    transition: height 0.3s;
+  }
 }
 
 .project {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+
   img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 }
 
 .swiper-container {
   width: 100%;
   height: 100%;
+}
+
+.swiper-pagination {
+  right: var(--padding);
+  top: 23px;
+  opacity: 0.5;
+  width: auto;
+  left: auto;
+  bottom: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.project-action {
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: bold;
+  text-align: center;
+  padding: 24px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  &:not(.status-in-stock) {
+    .in-stock {
+      display: none;
+    }
+  }
+
+  &:not(.status-sold-out) {
+    .sold-out {
+      display: none;
+    }
+  }
+}
+
+.sold-out {
+  opacity: 0.5;
+}
+
+.trigger-info {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  padding: 24px var(--padding);
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }

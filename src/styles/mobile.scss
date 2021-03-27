@@ -1,0 +1,101 @@
+@media (max-width: 428px) {
+  :root {
+    --padding: 16px;
+  }
+
+  .trigger-info {
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+  }
+
+  .swiper-pagination {
+    top: var(--padding);
+  }
+
+  .project-action {
+    padding: var(--padding) 0;
+  }
+
+  .logo-link {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .trigger-menu {
+    display: block;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  main {
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+
+    &.menu-open {
+      .logo {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .trigger-menu-hide {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .trigger-menu-show {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .projects {
+        &:before {
+          height: 100%;
+        }
+      }
+
+      .menu {
+        visibility: visible;
+      }
+
+      &:not(.menu-about-open) .menu-nav {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &.menu-about-open {
+      .menu-about {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .projects {
+    flex-basis: 100vw;
+  }
+
+  footer {
+    display: none;
+  }
+
+  .text {
+    padding-bottom: 32px;
+    margin-top: auto;
+  }
+
+  .upper-spacer {
+    display: none;
+  }
+}

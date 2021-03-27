@@ -1,26 +1,30 @@
 [
   {
-    "id": "first",
-    "title": "Eyes Wide Shut",
-    "image": "./content/image-1.jpg",
-    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
-  },
-  {
-    "id": "the-second",
-    "title": "Eyes Wide Shut",
-    "image": "./content/image-2.jpg",
-    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
-  },
-  {
-    "id": "the-best",
-    "title": "Eyes Wide Shut",
-    "image": "./content/image-3.jpg",
-    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
-  },
-  {
-    "id": "last",
-    "title": "Eyes Wide Shut",
+    "url": "https://google.com",
+    "id": "oldest",
     "image": "./content/image-4.jpg",
+    "title": "Eyes Wide Open",
     "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
+  },
+  {
+    "url": "https://google.com",
+    "id": "limited/the-best",
+    "image": "./content/image-3.jpg",
+    "title": "Eyes Wide Shut Eyes Wide Shut",
+    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно. Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
+  },
+  {
+    "url": "https://google.com",
+    "id": "limited/second",
+    "image": "./content/image-2.jpg",
+    "title": "Eyes Wide Shut Eyes Wide Shut",
+    "description": "Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно. Мы часто смотрим туда, что не особо важно и не замечаем то, что действительно важно."
+  },
+  {
+    "id": "latest-and-greatest",
+    "image": "./content/featured-image.jpg",
+    "video": "./content/featured-video.mp4",
+    "title": "Eyes Wide Shut",
+    "description": "Мы часто смотрим туда."
   }
 ]
