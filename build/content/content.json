@@ -1,37 +1,45 @@
 [
   {
+    "id": "oldest",
     "url": "https://google.com",
     "status": "SOLD",
-    "id": "oldest",
-    "image": "./content/image-4.jpg",
+    "image": "./content/image-5.jpg",
     "title": "Have to be repudiated",
     "description": "The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains",
-    "background": "hsl(230, 60%, 60%)"
+    "background": "#93E2FE"
   },
   {
+    "id": "limited/the-best",
     "url": "https://google.com",
     "status": "AVAILABLE",
-    "id": "limited/the-best",
+    "image": "./content/image-4.jpg",
+    "title": "It will frequently occur that",
+    "description": "We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble",
+    "background": "#F3A3C1"
+  },
+  {
+    "id": "limited/second",
+    "url": "https://google.com",
+    "status": "AVAILABLE",
     "image": "./content/image-3.jpg",
     "title": "It will frequently occur that",
     "description": "We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble",
-    "background": "hsl(150, 60%, 60%)"
+    "background": "#FF5200"
   },
   {
-    "url": "https://google.com",
+    "id": "last_year",
     "status": "AVAILABLE",
-    "id": "limited/second",
-    "image": "./content/image-2.jpg",
-    "title": "It will frequently occur that",
-    "description": "We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble",
-    "background": "hsl(100, 60%, 60%)"
+    "image": "/content/image-2.jpg",
+    "title": "Eyes Wide Shut",
+    "description": "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.",
+    "background": "#B2DD8C"
   },
   {
     "id": "latest-and-greatest",
-    "image": "./content/featured-image.jpg",
-    "video": "./content/featured-video.mp4",
+    "status": "AVAILABLE",
+    "video": "./content/video-1.mp4",
     "title": "Eyes Wide Shut",
-    "description": "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.",
-    "background": "hsl(40, 60%, 60%)"
+    "description": "When nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided",
+    "background": "#FF6900"
   }
 ]

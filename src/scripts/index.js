@@ -1,14 +1,17 @@
 import addMenuEvents from './menu'
 import getJson from './content'
+import getMediaReady from './ready'
 
 (() => {
-  const createSlider = () => {
+  const createSlider = initialSlide => {
     return new window.Swiper('.swiper-container', {
       direction: 'vertical',
       loop: true,
+      loopAdditionalSlides: 10,
       grabCursor: true,
+      slidesPerView: 1,
       longSwipesRatio: 0.1,
-      longSwipesMs: 100,
+      longSwipesMs: 50,
       mousewheel: {
         forceToAxis: true,
         thresholdDelta: 20,
@@ -18,8 +21,8 @@ import getJson from './content'
         replaceState: true,
         watchState: true
       },
-      preloadImages: false,
       lazy: {
+        loadPrevNextAmount: 1,
         loadPrevNext: true
       },
       init: false,
@@ -27,29 +30,47 @@ import getJson from './content'
         el: '.swiper-pagination',
         type: 'custom',
         renderCustom: (_, current, total) => {
+          if (total <= 1) {
+            return null
+          }
           return `Lot${current}/${total}`
         }
-      }
+      },
+      initialSlide // Has to be set manually due to a lazy loading + hash nav combo bug
     })
   }
 
-  const getHtml = ({ image, id, video, url, status, background }) => `
-    ${url ? `<a href="${url}" target="_blank" rel="noreferrer noopener" tabindex="-1"` : '<div'} class="swiper-slide project" data-hash="${id}"${
-      background ? `style="background-color: ${background}"` : ''
-    }>
-      ${image ? `<img class="swiper-lazy" data-src="${image}" />` : ''}
-      ${video ? `<video class="swiper-lazy" data-src="${video}"></video>` : ''}
-      ${(status === 'SOLD' || status === 'AVAILABLE') 
-        ? `
-          <div class="project-action status-${status === 'AVAILABLE' ? 'in-stock' : 'sold-out'}">
-            <span class="in-stock">Buy</span>
-            <span class="sold-out">Sold</span>
-          </div>
-        ` 
-        : ''
-      }
-    ${url ? '</a>' : '</div>'}   
-  `
+  const getHtml = ({ image, id, video, url, status, background }) => {
+    let media = ''
+    let action = ''
+    let style = ''
+
+    if (video) {
+      media += `<video playsinline autoplay loop muted class="swiper-lazy" data-src="${video}"></video>`
+    } else if (image) {
+      media += `<img class="swiper-lazy" data-src="${image}" />`
+    }
+
+    if (status === 'SOLD' || status === 'AVAILABLE') {
+      action += `
+        <div class="project-action status-${status === 'AVAILABLE' ? 'in-stock' : 'sold-out'}">
+          <span class="in-stock">Buy</span>
+          <span class="sold-out">Sold</span>
+        </div>
+      ` 
+    }
+
+    if (background) {
+      style = `style="background-color: ${background}"`
+    }
+
+    return `
+      ${url ? `<a href="${url}" target="_blank" rel="noreferrer noopener" tabindex="-1"` : '<div'} class="swiper-slide project" data-hash="${id}"${style}>
+        ${media}
+        ${action}
+      ${url ? '</a>' : '</div>'}   
+    `
+  }
 
   const addTriggerEvents = (slider, content) => {
     const triggerAbout = document.querySelector('.trigger-about')
@@ -81,11 +102,13 @@ import getJson from './content'
 
     const showText = id => {
       textContainer.innerHTML = getText(id)
+      textContainerOuter.classList.remove('text-out')
       textContainerOuter.classList.add('text-in')
     }
     
     const hideText = () => {
       textContainerOuter.classList.remove('text-in')
+      textContainerOuter.classList.add('text-out')
       setTimeout(() => {
         textContainer.innerHTML = ''
       }, 200)
@@ -137,7 +160,17 @@ import getJson from './content'
       const content = await getJson()
       content.reverse()
 
-      const slider = createSlider()
+      const initialSlide = (() => {
+        const hash = location.hash.slice(1)
+        const matchingIdx = content.findIndex(i => i.id === hash)
+
+        if (matchingIdx > -1) {
+          return matchingIdx
+        }
+        return 0
+      })()
+
+      const slider = createSlider(initialSlide)
       const wrapper = document.querySelector('.swiper-wrapper')
 
       const textApi = addTriggerEvents(slider, content)
@@ -147,10 +180,22 @@ import getJson from './content'
         // Working with an existing html works though
         wrapper.innerHTML += getHtml(item) 
       })
+
+      const mediaReady = getMediaReady(slider, content)
       
       slider.init()
 
       addMenuEvents(textApi)
+
+      await mediaReady
+
+      const main = document.querySelector('main')
+      const logoIcon = document.querySelector('.logo-icon')
+
+      main.classList.add('loaded')      
+      logoIcon.addEventListener('animationiteration', () => {
+        logoIcon.classList.add('loaded')
+      })
     } catch (reason) {
       console.error('Failed to load content', reason)
     }

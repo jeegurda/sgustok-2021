@@ -23,6 +23,23 @@ main {
   height: 100vh;
   max-width: 100%;
   display: flex;
+
+  footer,
+  .trigger-menu,
+  .projects {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  &.loaded {
+    footer,
+    .trigger-menu,
+    .projects {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 }
 
 .left {
@@ -82,6 +99,7 @@ header {
   transition: visibility 0s 0.3s;
   display: flex;
   z-index: 20;
+  display: none;
 }
 
 .menu-nav {
@@ -131,7 +149,10 @@ header {
   box-sizing: border-box;
   overflow: auto;
   flex: 0 1 auto;
-  animation: text-out 0.2s 1 both;
+  
+  &.text-out {
+    animation: text-out 0.2s 1 both;
+  }
 
   &.text-in {
     animation: text-in 0.2s 1 both;
@@ -185,24 +206,16 @@ footer {
   img {
     display: block;
   }
+
+  &.loaded {
+    animation: none;
+  }
 }
 
 .projects {
   flex: 0 1 100vh;
   overflow: hidden;
   position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    z-index: 20;
-    background: white;
-    transition: height 0.3s;
-  }
 }
 
 .project {
@@ -210,10 +223,21 @@ footer {
   color: inherit;
   text-decoration: none;
 
-  img {
+  &.media-loading {
+    animation: media-loading 1s linear infinite both;
+  }
+
+  img, video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+
+    &.media-loaded {
+      animation: media-loaded 0.3s 1 both;
+    }
   }
 }
 
@@ -240,9 +264,11 @@ footer {
   text-align: center;
   padding: 24px 0;
   position: absolute;
+  z-index: 2;
   bottom: 0;
   left: 0;
   width: 100%;
+  transform: translate3d(0, 0, 0); // Fixes iOS Safari flickering
 
   &:not(.status-in-stock) {
     .in-stock {

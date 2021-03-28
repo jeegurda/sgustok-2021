@@ -23,6 +23,10 @@
 }
 
 @media (max-width: 1024px) {
+  .menu {
+    display: flex;
+  }
+
   .trigger-menu {
     display: block;
   }
@@ -58,7 +62,7 @@
 
       .projects {
         &:before {
-          height: 100%;
+          transform: translate3d(0, 100%, 0);
         }
       }
 
@@ -88,6 +92,19 @@
 
   .projects {
     flex-basis: 100vw;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 20;
+      background: white;
+      transition: transform 0.3s;
+      transform: translate3d(0, 0, 0); // Should help with iOS Safari performance
+    }
   }
 
   footer {
@@ -101,5 +118,20 @@
 
   .upper-spacer {
     display: none;
+  }
+
+  .footer-nav {
+    a, 
+    span { 
+      &:hover {
+        opacity: initial;
+      }
+    }
+  }
+
+  .trigger-info {  
+    &:hover {
+      opacity: initial;
+    }
   }
 }

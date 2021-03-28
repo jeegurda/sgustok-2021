@@ -1,7 +1,7 @@
 {
   "name": "slot",
   "scripts": {
-    "watch-js": "rollup src/scripts/index.js -w -o build/js/bundle.js",
+    "watch-js": "rollup src/scripts/index.js -w -m -o build/js/bundle.js",
     "watch-css": "sass --style compressed --watch src/styles/index.scss build/css/bundle.css",
     "serve": "serve ./build -p 5000",
     "build-js": "rollup src/scripts/index.js -p terser -o build/js/bundle.js",
