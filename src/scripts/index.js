@@ -46,7 +46,7 @@ import getMediaReady from './ready'
     let style = ''
 
     if (video) {
-      media += `<video playsinline autoplay loop muted class="swiper-lazy" data-src="${video}"></video>`
+      media += `<video playsinline loop muted class="swiper-lazy" data-src="${video}"></video>`
     } else if (image) {
       media += `<img class="swiper-lazy" data-src="${image}" />`
     }
