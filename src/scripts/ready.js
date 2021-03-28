@@ -13,18 +13,14 @@ const addLoadEvents = (slider, content) => new Promise(resolve => {
       frame.classList.remove('media-loading')
     })
     media.classList.add('media-loaded')
-
-    if (
-      media instanceof HTMLVideoElement &&
-      media.paused
-    ) {
-      media.play()
-    }
   }
 
   slider.on('lazyImageLoad', (_, frame, media) => {
     frame.classList.add('media-loading')
     if (media instanceof HTMLVideoElement) {
+      if (media.paused) {
+        media.play()
+      }
       media.addEventListener('canplaythrough', () => handle(frame, media))
     } else if (media instanceof HTMLImageElement) {
       media.addEventListener('load', () => handle(frame, media))
