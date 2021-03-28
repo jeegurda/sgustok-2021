@@ -105,7 +105,7 @@ header {
 
 .menu-about {
   position: absolute;
-  top: 0;
+  max-height: calc(100% - 20px); // Limit available place at the top
   bottom: 30px;
   overflow: auto;
   left: var(--padding);
@@ -114,9 +114,6 @@ header {
   opacity: 0;
   transform: translateY(10px);
   transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 
   p:not(:last-child) {
     margin-bottom: 8px;

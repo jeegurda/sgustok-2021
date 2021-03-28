@@ -82,6 +82,10 @@
     }
   }
 
+  header {
+    margin-bottom: -10px; // Allow content below to come closer
+  }
+
   .projects {
     flex-basis: 100vw;
   }
