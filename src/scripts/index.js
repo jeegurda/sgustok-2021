@@ -15,7 +15,7 @@ import getMediaReady from './ready'
       mousewheel: {
         forceToAxis: true,
         thresholdDelta: 20,
-        thresholdTime: 100
+        thresholdTime: 50
       },  
       hashNavigation: {
         replaceState: true,
