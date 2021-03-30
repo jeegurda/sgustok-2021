@@ -3,11 +3,18 @@ import getJson from './content'
 import getMediaReady from './ready'
 
 (() => {
-  const createSlider = initialSlide => {
+  const createSlider = (initialSlide, content) => {
+    const params = {}
+
+    if (content.length === 1) {
+      params.allowTouchMove = false
+      params.loop = false
+    } else {
+      params.loop = true
+    }
+
     return new window.Swiper('.swiper-container', {
       direction: 'vertical',
-      loop: true,
-      loopAdditionalSlides: 10,
       grabCursor: true,
       slidesPerView: 1,
       longSwipesRatio: 0.1,
@@ -36,7 +43,8 @@ import getMediaReady from './ready'
           return `Lot${current}/${total}`
         }
       },
-      initialSlide // Has to be set manually due to a lazy loading + hash nav combo bug
+      initialSlide, // Has to be set manually due to a lazy loading + hash nav combo bug
+      ...params
     })
   }
 
@@ -170,7 +178,7 @@ import getMediaReady from './ready'
         return 0
       })()
 
-      const slider = createSlider(initialSlide)
+      const slider = createSlider(initialSlide, content)
       const wrapper = document.querySelector('.swiper-wrapper')
 
       const textApi = addTriggerEvents(slider, content)
