@@ -29,10 +29,6 @@ p, ul {
   padding: 0;
 }
 
-a {
-  @include link;
-}
-
 main {
   height: 100vh;
   max-width: 100%;
@@ -171,6 +167,10 @@ header {
   &.text-in {
     animation: text-in 0.2s 1 both;
   }
+
+  a {
+    @include link;
+  }
 }
 
 .text-container {
@@ -198,6 +198,7 @@ footer {
   grid-auto-flow: column;
   grid-column-gap: 30px;
 
+  a,
   span {
     cursor: pointer;
     @include link;
