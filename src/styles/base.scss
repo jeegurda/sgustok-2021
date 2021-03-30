@@ -1,3 +1,13 @@
+@mixin link {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
 :root {
   --padding: 30px;
 }
@@ -17,6 +27,10 @@ body {
 p, ul {
   margin: 0;
   padding: 0;
+}
+
+a {
+  @include link;
 }
 
 main {
@@ -184,16 +198,9 @@ footer {
   grid-auto-flow: column;
   grid-column-gap: 30px;
 
-  a, 
   span {
     cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.5;
-    }
+    @include link;
   }
 }
 
