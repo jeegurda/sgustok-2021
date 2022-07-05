@@ -1,4 +1,4 @@
-const addMenuEvents = textApi => {
+const addMenuEvents = (textApi) => {
   let menuOpen = false
   let menuAboutOpen = false
 
